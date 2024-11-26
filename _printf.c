@@ -2,23 +2,7 @@
 #include "main.h"
 
 int _printf(const char *format, ...)
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
-typedef struct specifier {
-    char *format;
-    int (*handler)(va_list);
-} specifier_t;
-int _printf(const char *format, ...) {
-    specifier_t specifiers[] = {
-        {"c", print_char},
-        {"s", print_string},
-        {"%", print_percent},
-        {NULL, NULL}
-    };
+{
     va_list args;
     int count = 0;
     int i = 0, j;
