@@ -17,4 +17,4 @@ typedef struct specifier {
 
 extern specifier_t specifiers[];
 
-#endif /* MAIN_H */
+#endif 
