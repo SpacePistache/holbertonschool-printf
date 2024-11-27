@@ -43,30 +43,45 @@ int print_percent(va_list args)
 write(1, "%", 1);
 return (1);
 }
+#include <stdarg.h>
+#include <unistd.h>
 /**
- * print_int - Affiche un entier passé en paramèt
- * @args: liste d'arguments variadiques contenant l'entier �afficher
+ * print_int - Affiche un entier
+ * @args: Liste des arguments contenant l'entier à afficher
  *
- * Cette fonction récupère un entier d'une liste d'arguments variadiques,
- * le convertit en chaîne de caractères, et l'affiche en sortie standard.
- * Si l'entier est négatif, un signe '-' est affiché avant le nombre
- *
- * Return: Le nombre de caractères affiché
+ * Return: Le nombre de caractères affichés
  */
 int print_int(va_list args)
 {
 int n = va_arg(args, int);
 char buffer[12];
 int len = 0;
+int i = 0;
+int j;
 if (n < 0)
 {
 write(1, "-", 1);
 n = -n;
 len++;
 }
-len += sprintf(buffer, "%d", n);
-write(1, buffer, len);
-return (len);
+if (n == 0)
+{
+buffer[i++] = '0';
+}
+else
+{
+while (n > 0)
+{
+buffer[i++] = (n % 10) + '0';
+n = n / 10;
+}
+}
+for (j = i - 1; j >= 0; j--)
+{
+write(1, &buffer[j], 1);
+len++;
+}
+return len;
 }
 /**
  * _printf - Affiche une chaîne format�
