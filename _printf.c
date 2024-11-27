@@ -44,14 +44,14 @@ write(1, "%", 1);
 return (1);
 }
 /**
- * _printf - Produces output according to a format
- * @format: A string containing the desired characters and specifiers
- * Return: Total number of characters printed
- */
-/**
- * print_i - Prints an integer
- * @args: Argument list containing the integer to print
- * Return: Number of characters printed
+ * print_int - Affiche un entier passé en paramèt
+ * @args: liste d'arguments variadiques contenant l'entier �afficher
+ *
+ * Cette fonction récupère un entier d'une liste d'arguments variadiques,
+ * le convertit en chaîne de caractères, et l'affiche en sortie standard.
+ * Si l'entier est négatif, un signe '-' est affiché avant le nombre
+ *
+ * Return: Le nombre de caractères affiché
  */
 int print_int(va_list args)
 {
@@ -68,18 +68,22 @@ len += sprintf(buffer, "%d", n);
 write(1, buffer, len);
 return (len);
 }
+/**
+ * _printf - Affiche une chaîne format�
+ * @format: Chaîne de format avec des spécificateu
+ *
+ * Traite la chaîne de format et affiche les ar selon les sp
+ * Prend en charge %c, %s, %d, %i et %%.
+ *
+ * Return: Nombre de caractères affiché
+ */
 int _printf(const char *format, ...)
 {
 va_list args;
 int i = 0, count = 0, j;
 specifier_t specifiers[] = {
-{'c', print_char},
-{'s', print_string},
-{'%', print_percent},
-{'d', print_int},
-{'i', print_int},
-{0, NULL}
-};
+{'c', print_char}, {'s', print_string}, {'%', print_percent},
+{'d', print_int}, {'i', print_int}, {0, NULL} };
 va_start(args, format);
 while (format && format[i] != '\0')
 {
