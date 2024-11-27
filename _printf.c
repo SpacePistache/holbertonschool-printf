@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+#include <stdio.h>
 /**
  * print_char - Prints a character
  * @args: Argument list containing the character to print
@@ -47,6 +48,26 @@ return (1);
  * @format: A string containing the desired characters and specifiers
  * Return: Total number of characters printed
  */
+/**
+ * print_i - Prints an integer
+ * @args: Argument list containing the integer to print
+ * Return: Number of characters printed
+ */
+int print_int(va_list args)
+{
+int n = va_arg(args, int);
+char buffer[12];
+int len = 0;
+if (n < 0)
+{
+write(1, "-", 1);
+n = -n;
+len++;
+}
+len += sprintf(buffer, "%d", n);
+write(1, buffer, len);
+return (len);
+}
 int _printf(const char *format, ...)
 {
 va_list args;
@@ -55,6 +76,8 @@ specifier_t specifiers[] = {
 {'c', print_char},
 {'s', print_string},
 {'%', print_percent},
+{'d', print_int},
+{'i', print_int},
 {0, NULL}
 };
 va_start(args, format);
