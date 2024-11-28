@@ -81,7 +81,7 @@ for (j = i - 1; j >= 0; j--)
 write(1, &buffer[j], 1);
 len++;
 }
-return len;
+return (len);
 }
 /**
  * _printf - Affiche une chaîne format�
