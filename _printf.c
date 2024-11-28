@@ -91,10 +91,6 @@ return (len);
  *
  * Return: Nombre de caractères affiché
  */
-* _printf - Affiche une chaÃ®ne formatÃ
-* @format: ChaÃ®ne de format avec des spÃ©cificateur
-* Return: Nombre de caractÃ¨res affichÃ©
-*/
 int _printf(const char *format, ...)
 {
 va_list args;
@@ -103,7 +99,7 @@ int i = 0, count = 0;
 specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'d', print_int}, {'i', print_int}, {0, NULL} };
-@@ -105,22 +19,7 @@ while (format && format[i] != '\0')
+while (format && format[i] != '\0')
 if (format[i] == '%')
 {
 i++;
