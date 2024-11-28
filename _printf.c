@@ -123,7 +123,7 @@ count += handle_specifier(format[i], args, specifiers);
 }
 else
 {
-@i++;
+i++;
 }
 va_end(args);
 return (count);
