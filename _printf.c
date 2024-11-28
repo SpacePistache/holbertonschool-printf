@@ -3,6 +3,16 @@
 #include "main.h"
 #include <stdio.h>
 /**
+ * _putchar - Écrit un caractère sur la sortie standard
+ * @c: Le caractère à écrire
+ *
+ * Return: 1 si succès, -1 si erreur
+ */
+int _putchar(char c)
+{
+return write(1, &c, 1);
+}
+/**
  * print_char - Prints a character
  * @args: Argument list containing the character to print
  * Return: Number of characters printed (1)
@@ -10,7 +20,7 @@
 int print_char(va_list args)
 {
 char c = va_arg(args, int);
-write(1, &c, 1);
+_putchar(c);
 return (1);
 }
 /**
@@ -22,12 +32,11 @@ int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
 int i = 0;
-
 if (str == NULL)
 str = "(null)";
 while (str[i] != '\0')
 {
-write(1, &str[i], 1);
+_putchar(str[i]);
 i++;
 }
 return (i);
@@ -40,16 +49,14 @@ return (i);
 int print_percent(va_list args)
 {
 (void)args;
-write(1, "%", 1);
+_putchar('%');
 return (1);
 }
-#include <stdarg.h>
-#include <unistd.h>
 /**
  * print_int - Affiche un entier
- * @args: Liste des arguments contenant l'entier à afficher
+ * @args: Liste des arguments contenant l'entier à affiche
  *
- * Return: Le nombre de caractères affichés
+ * Return: Le nombre de caractères affich�
  */
 int print_int(va_list args)
 {
@@ -60,7 +67,7 @@ int i = 0;
 int j;
 if (n < 0)
 {
-write(1, "-", 1);
+_putchar('-');
 n = -n;
 len++;
 }
@@ -78,19 +85,19 @@ n = n / 10;
 }
 for (j = i - 1; j >= 0; j--)
 {
-write(1, &buffer[j], 1);
+_putchar(buffer[j]);
 len++;
 }
 return len;
 }
 /**
- * _printf - Affiche une chaîne format�
- * @format: Chaîne de format avec des spécificateu
+ * _printf - Affiche une chaîne forma
+ * @format: Chaîne de format avec des spécificat
  *
- * Traite la chaîne de format et affiche les ar selon les sp
+ * Traite la chaîne de format et affiche les ar selon les s
  * Prend en charge %c, %s, %d, %i et %%.
  *
- * Return: Nombre de caractères affiché
+ * Return: Nombre de caractères affich
  */
 int _printf(const char *format, ...)
 {
@@ -98,13 +105,10 @@ va_list args;
 int i = 0, count = 0, j;
 specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
-{'d', print_int}, {'i', print_int}, {0, NULL} };
+{'d', print_int}, {'i', print_int}, {0, NULL}
+};
 va_start(args, format);
-if (format == NULL)
-{
-	exit -1;
-}
-while (format[i] != '\0')
+while (format && format[i] != '\0')
 {
 if (format[i] == '%')
 {
@@ -121,14 +125,14 @@ j++;
 }
 if (specifiers[j].spec == 0)
 {
-write(1, "%", 1);
-write(1, &format[i], 1);
+_putchar('%');
+_putchar(format[i]);
 count += 2;
 }
 }
 else
 {
-write(1, &format[i], 1);
+_putchar(format[i]);
 count++;
 }
 i++;
