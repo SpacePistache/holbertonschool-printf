@@ -3,16 +3,6 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * _putchar - Écrit un caractère sur la sortie standard
- * @c: Le caractère à écrire
- *
- * Return: 1 si succès, -1 si erreur
- */
-int _putchar(char c)
-{
-return write(1, &c, 1);
-}
-/**
  * print_char - Prints a character
  * @args: Argument list containing the character to print
  * Return: Number of characters printed (1)
@@ -20,7 +10,7 @@ return write(1, &c, 1);
 int print_char(va_list args)
 {
 char c = va_arg(args, int);
-_putchar(c);
+write(1, &c, 1);
 return (1);
 }
 /**
@@ -32,11 +22,12 @@ int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
 int i = 0;
+
 if (str == NULL)
 str = "(null)";
 while (str[i] != '\0')
 {
-_putchar(str[i]);
+write(1, &str[i], 1);
 i++;
 }
 return (i);
@@ -49,7 +40,7 @@ return (i);
 int print_percent(va_list args)
 {
 (void)args;
-_putchar('%');
+write(1, "%", 1);
 return (1);
 }
 /**
@@ -67,7 +58,7 @@ int i = 0;
 int j;
 if (n < 0)
 {
-_putchar('-');
+write(1, "-", 1);
 n = -n;
 len++;
 }
@@ -85,13 +76,13 @@ n = n / 10;
 }
 for (j = i - 1; j >= 0; j--)
 {
-_putchar(buffer[j]);
+write(1, &buffer[j], 1);
 len++;
 }
 return len;
 }
 /**
- * _printf - Affiche une chaîne forma
+ * _printf - Affiche une chaîne format�
  * @format: Chaîne de format avec des spécificat
  *
  * Traite la chaîne de format et affiche les ar selon les s
@@ -105,8 +96,7 @@ va_list args;
 int i = 0, count = 0, j;
 specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
-{'d', print_int}, {'i', print_int}, {0, NULL}
-};
+{'d', print_int}, {'i', print_int}, {0, NULL} };
 va_start(args, format);
 while (format && format[i] != '\0')
 {
@@ -125,14 +115,14 @@ j++;
 }
 if (specifiers[j].spec == 0)
 {
-_putchar('%');
-_putchar(format[i]);
+write(1, "%", 1);
+write(1, &format[i], 1);
 count += 2;
 }
 }
 else
 {
-_putchar(format[i]);
+write(1, &format[i], 1);
 count++;
 }
 i++;
