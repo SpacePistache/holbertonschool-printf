@@ -1,7 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
-
 /**
  * _printf - Formats and prints a string
  * @format: The format string
@@ -19,12 +18,10 @@ specifier_t specifiers[] = {
 {'i', print_int},
 {0, NULL}
 };
-
 if (format == NULL)
 {
 return (-1);  /* Return -1 if format is NULL */
 }
-
 va_start(args, format);
 while (format && format[i] != '\0')
 {
@@ -41,6 +38,5 @@ count++;
 i++;
 }
 va_end(args);
-
 return (count);
 }
