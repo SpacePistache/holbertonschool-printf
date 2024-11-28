@@ -16,6 +16,9 @@ specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'d', print_int}, {'i', print_int}, {0, NULL} };
 
+if( !format || *format)
+return (-1);
+
 va_start(args, format);
 while (format && format[i] != '\0')
 {
