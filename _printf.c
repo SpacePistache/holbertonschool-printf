@@ -22,6 +22,7 @@ int print_string(va_list args)
 {
 char *str = va_arg(args, char *);
 int i = 0;
+
 if (str == NULL)
 str = "(null)";
 while (str[i] != '\0')
@@ -80,7 +81,7 @@ for (j = i - 1; j >= 0; j--)
 write(1, &buffer[j], 1);
 len++;
 }
-return (len);
+return len;
 }
 /**
  * _printf - Affiche une chaîne format�
@@ -91,19 +92,16 @@ return (len);
  *
  * Return: Nombre de caractères affiché
  */
-* _printf - Affiche une chaÃ®ne formatÃ
-* @format: ChaÃ®ne de format avec des spÃ©cificateur
-* Return: Nombre de caractÃ¨res affichÃ©
-*/
 int _printf(const char *format, ...)
 {
 va_list args;
 int i = 0, count = 0, j;
-int i = 0, count = 0;
 specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'d', print_int}, {'i', print_int}, {0, NULL} };
-@@ -105,22 +19,7 @@ while (format && format[i] != '\0')
+va_start(args, format);
+while (format && format[i] != '\0')
+{
 if (format[i] == '%')
 {
 i++;
@@ -123,11 +121,13 @@ write(1, "%", 1);
 write(1, &format[i], 1);
 count += 2;
 }
-count += handle_specifier(format[i], args, specifiers);
 }
 else
 {
-@@ -131,4 +30,4 @@ i++;
+write(1, &format[i], 1);
+count++;
+}
+i++;
 }
 va_end(args);
 return (count);
