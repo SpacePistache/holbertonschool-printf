@@ -100,7 +100,11 @@ specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'d', print_int}, {'i', print_int}, {0, NULL} };
 va_start(args, format);
-while (format && format[i] != '\0')
+if (format == NULL)
+{
+	exit -1;
+}
+while (format[i] != '\0')
 {
 if (format[i] == '%')
 {
