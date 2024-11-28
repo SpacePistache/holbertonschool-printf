@@ -1,0 +1,16 @@
+#include "main.h"
+int handle_specifier(char spec, va_list args, specifier_t *specifiers)
+{
+int j = 0;
+while (specifiers[j].spec != 0)
+{
+if (spec == specifiers[j].spec)
+{
+return (specifiers[j].func(args));
+}
+j++;
+}
+write(1, "%", 1);
+write(1, &spec, 1);
+return (2);
+}

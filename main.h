@@ -7,6 +7,7 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list args);
+int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 int print_entier(va_list args);
@@ -17,5 +18,5 @@ typedef struct specifier {
     int (*func)(va_list args);
 } specifier_t;
 extern specifier_t specifiers[];
-
+extern int handle_specifier(char spec, va_list args, specifier_t *specifiers);
 #endif
