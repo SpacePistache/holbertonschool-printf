@@ -84,7 +84,7 @@ len++;
 return len;
 }
 /**
- * _printf - Affiche une chaîne format�
+ * _printf - Affiche une chaîne format�
  * @format: Chaîne de format avec des spécificateu
  *
  * Traite la chaîne de format et affiche les ar selon les sp
@@ -100,11 +100,7 @@ specifier_t specifiers[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'d', print_int}, {'i', print_int}, {0, NULL} };
 va_start(args, format);
-if (format == NULL)
-{
-    exit -1;
-}
-while (format[i] != '\0')
+while (format && format[i] != '\0')
 {
 if (format[i] == '%')
 {
