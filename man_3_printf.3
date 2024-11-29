@@ -1,6 +1,4 @@
-## _printf Manual Page
 .\" Man page for _printf
-.\" Contact: Your Name <your.email@example.com>
 .\" Date: November 28, 2024
 .\" Manual: Custom C Library Functions
 .TH _PRINTF 3 "November 28, 2024" "Custom C Library" "_printf Manual"
@@ -15,7 +13,8 @@ _printf \- formats and prints strings and variables to standard output
 .fi
 
 .SH DESCRIPTION
-The \fB_printf\fR function formats and prints output to the standard output. It supports a subset of format specifiers, including:
+The \fB_printf\fR function formats and prints output to the standard output.
+It supports a subset of format specifiers, including:
 
 .TP
 \fB%c\fR
@@ -36,21 +35,26 @@ Prints a signed decimal integer.
 Flags, field widths, and precision are not fully implemented in this version.
 
 .SH RETURN VALUE
-The \fB_printf\fR function returns the total number of characters printed, excluding the null byte used to end output to strings. If an error occurs, such as when \fBformat\fR is \fBNULL\fR, the function returns \fB-1\fR.
+The \fB_printf\fR function returns the total number of characters printed,
+excluding the null byte used to end output to strings. If an error occurs,
+such as if \fBformat\fR is \fBNULL\fR, the function returns \fB-1\fR.
 
 .SH EXAMPLES
+.PP
 Example 1: Printing a simple string
 .EX
 _printf("Hello, World!\\n");
 Output: Hello, World!
 .EE
 
+.PP
 Example 2: Printing multiple variables
 .EX
 _printf("Character: %c, String: %s, Number: %d\\n", 'A', "example", 123);
 Output: Character: A, String: example, Number: 123
 .EE
 
+.PP
 Example 3: Escaping the percent sign
 .EX
 _printf("Print 100%% accurate!\\n");
@@ -58,8 +62,5 @@ Output: Print 100% accurate!
 .EE
 
 .SH AUTHORS
-Your Name
-Collaborators (if any)
-
-.SH DATE
-November 28, 2024
+Luke Holley-Boutillier
+Imli Veliu
