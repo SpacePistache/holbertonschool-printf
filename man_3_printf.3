@@ -1,40 +1,65 @@
 ## _printf Manual Page
-![A flow chart showing the step by step process of _printf](_printf.cflowchart.drawio.png)
+.\" Man page for _printf
+.\" Contact: Your Name <your.email@example.com>
+.\" Date: November 28, 2024
+.\" Manual: Custom C Library Functions
+.TH _PRINTF 3 "November 28, 2024" "Custom C Library" "_printf Manual"
 
-NAME 
-_printf - formats and prints strings and variables to the standard output
+.SH NAME
+_printf \- formats and prints strings and variables to standard output
 
-SYNOPSIS 
-#include "main.h"
+.SH SYNOPSIS
+.nf
+.B #include "main.h"
+.BI "int _printf(const char *" format ", ...);"
+.fi
 
-##int _printf(const char *format, ...);
+.SH DESCRIPTION
+The \fB_printf\fR function formats and prints output to the standard output. It supports a subset of format specifiers, including:
 
-DESCRIPTION 
-The _printf function formats and prints output to the standard output. It supports a subset of format specifiers, flags, field widths, precision, and length modifiers similar to the standard printf.
+.TP
+\fB%c\fR
+Prints a single character.
 
-Format specifiers available:
-%c   Prints a single character.
-%s   Prints a string.
-%%   Prints a percent sign.
-%d   Prints a signed decimal integer.
-%i   Prints a signed decimal integer.
+.TP
+\fB%s\fR
+Prints a string.
 
-Flags, field widths, precision, and length modifiers are not fully implemented. Only the core specifiers listed above are supported.
+.TP
+\fB%%\fR
+Prints a percent sign.
 
-RETURN VALUE 
-The _printf function returns the total number of characters printed, excluding the null byte used to end output to strings. If an error occurs (e.g., if format is NULL), the function returns -1.
+.TP
+\fB%d\fR or \fB%i\fR
+Prints a signed decimal integer.
 
-EXAMPLES 
-Example 1: Printing a simple string _printf("Hello, World!\n"); Output: Hello, World!
+Flags, field widths, and precision are not fully implemented in this version.
+
+.SH RETURN VALUE
+The \fB_printf\fR function returns the total number of characters printed, excluding the null byte used to end output to strings. If an error occurs, such as when \fBformat\fR is \fBNULL\fR, the function returns \fB-1\fR.
+
+.SH EXAMPLES
+Example 1: Printing a simple string
+.EX
+_printf("Hello, World!\\n");
+Output: Hello, World!
+.EE
+
 Example 2: Printing multiple variables
-    _printf("Character: %c, String: %s, Number: %d\n", 'A', "example", 123);
-    Output: Character: A, String: example, Number: 123
+.EX
+_printf("Character: %c, String: %s, Number: %d\\n", 'A', "example", 123);
+Output: Character: A, String: example, Number: 123
+.EE
+
 Example 3: Escaping the percent sign
-    _printf("Print 100%% accurate!\n");
-    Output: Print 100% accurate!
+.EX
+_printf("Print 100%% accurate!\\n");
+Output: Print 100% accurate!
+.EE
 
-DATE 
-28 NOVEMBER 2024
+.SH AUTHORS
+Your Name
+Collaborators (if any)
 
-AUTHORS 
-Luke Holley-Boutillier, Ilmi Veliu
+.SH DATE
+November 28, 2024
