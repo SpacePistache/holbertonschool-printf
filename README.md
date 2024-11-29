@@ -11,12 +11,11 @@ Handles multiple format specifiers:
 Provides functionality for basic output formatting without support for advanced flags, width, or precision.
 
 ## **Requirements**
-.Bl
-.It Fl a -Ubuntu 22.04 LTS
-.It -Compiler: GCC 9.3.0 or newer
-.It -Version Control: Git 2.25.1 or newer
-.It -Memory Debugger: Valgrind (optional, for memory testing)
-.El
+
+- Ubuntu 22.04 LTS
+- Compiler: GCC 9.3.0 or newer
+- Version Control: Git 2.25.1 or newer
+- Memory Debugger: Valgrind (optional, for memory testing)
 
 ## **The GCC compiler**
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
