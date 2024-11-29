@@ -20,15 +20,15 @@ The GCC compiler
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 Examples of the code at work
-Code Snippet	Description	Output
-_printf("Hello, World!\\n");	Prints a simple string.	Hello, World!
-_printf("Character: %c, String: %s\\n", 'A', "example");	Prints a character and a string.	Character: A, String: example
-_printf("Number: %d\\n", 123);	Prints an integer.	Number: 123
-_printf("Signed Integer: %i\\n", -456);	Prints a signed integer.	Signed Integer: -456
-_printf("Percent sign: 100%% accuracy!\\n");	Prints a percent sign.	Percent sign: 100% accuracy!
-_printf("Multiple: %c %s %d%%\\n", 'X', "data", 50);	Combines multiple specifiers.	Multiple: X data 50%
-_printf(NULL);	Handles a NULL format string.	-1 (Error, returns -1)
-_printf("Incomplete: %");	Handles incomplete specifiers.	%
+|Code Snippet	|Description	|Output
+|_printf("Hello, World!\\n");|	Prints a simple string.|	Hello, World!|
+|_printf("Character: %c, String: %s\\n", 'A', "example");|	Prints a character and a string.|	Character: A, String: example|
+|_printf("Number: %d\\n", 123);|	Prints an integer.|	Number: 123|
+|_printf("Signed Integer: %i\\n", -456);|	Prints a signed integer.|	Signed Integer: -456|
+|_printf("Percent sign: 100%% accuracy!\\n");|	Prints a percent sign.|	Percent sign: 100% accuracy!|
+|_printf("Multiple: %c %s %d%%\\n", 'X', "data", 50);|	Combines multiple specifiers.|	Multiple: X data 50%|
+|_printf(NULL);	Handles a NULL format string.|	-1| (Error, returns -1)|
+|_printf("Incomplete: %");|	Handles incomplete specifiers.|	%|
 
 
 ## _printf Manual Page
