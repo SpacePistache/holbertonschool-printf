@@ -21,6 +21,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 Examples of the code at work
 |Code Snippet	                                         |Description	                            |Output                       |
+---------------------------------------------------------|------------------------------------------|-----------------------------|
 |_printf("Hello, World!\\n");                            |Prints a simple string.                   |Hello, World!                |
 |_printf("Character: %c, String: %s\\n", 'A', "example");|Prints a character and a string.          |Character: A, String: example|
 |_printf("Number: %d\\n", 123);                          |Prints an integer.                        |Number: 123                  |
