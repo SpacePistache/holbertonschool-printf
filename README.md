@@ -32,10 +32,16 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 |_printf(NULL);	Handles a NULL format string.            |-1                                        | (Error, returns -1)         |
 |_printf("Incomplete: %");                               |Handles incomplete specifiers.            |%                            |
 
+## **How to test**
+- Clone the repository to your local system
+- Copier le code
+- Run test cases
+- Use the provided main files for functionality checks
 
-## _printf Manual Page
+
+## **_printf Manual Page**
 ![A flow chart showing the step by step process of _printf](_printf.cflowchart.drawio.png)
 
-## Documentation
+## **Documentation**
 
 - [Man Page for _printf](./man_3_printf.3)
