@@ -34,7 +34,6 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 
 ## **How to test**
 - Clone the repository to your local system
-- Copier le code
 - Run test cases
 - Use the provided main files for functionality checks
 
